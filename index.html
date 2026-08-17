@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rico Kim</title>
+  <style>
+    :root {
+      --bg: #f7f5f2;
+      --text: #1f1f1f;
+      --muted: #5c5c5c;
+      --accent: #2f5d50;
+      --card: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Pretendard", "Noto Sans KR", system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    .page {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 72px 24px 96px;
+    }
+
+    header {
+      margin-bottom: 56px;
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      font-size: 2.2rem;
+      letter-spacing: -0.03em;
+    }
+
+    .intro {
+      color: var(--muted);
+      margin: 0;
+    }
+
+    article {
+      background: var(--card);
+      border-radius: 16px;
+      padding: 28px;
+      margin-bottom: 20px;
+      box-shadow: 0 8px 24px rgba(31, 31, 31, 0.04);
+    }
+
+    article h2 {
+      margin: 0 0 8px;
+      font-size: 1.25rem;
+    }
+
+    article p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    time {
+      display: block;
+      margin-bottom: 10px;
+      font-size: 0.85rem;
+      color: var(--accent);
+    }
+
+    footer {
+      margin-top: 48px;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header>
+      <h1>Rico Kim</h1>
+      <p class="intro">공부한 것과 만든 것을 기록하는 블로그입니다.</p>
+    </header>
+
+    <article>
+      <time datetime="2026-08-17">2026.08.17</time>
+      <h2>블로그를 시작합니다</h2>
+      <p>GitHub Pages로 만든 첫 글입니다. 앞으로 개발 기록과 생각을 이곳에 남기겠습니다.</p>
+    </article>
+
+    <footer>
+      <p>© 2026 Rico Kim</p>
+    </footer>
+  </main>
+</body>
+</html>
