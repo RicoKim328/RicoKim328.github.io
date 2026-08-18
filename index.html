@@ -113,6 +113,7 @@
       font-size: 14px;
       font-weight: 600;
       letter-spacing: -0.224px;
+      cursor: pointer;
     }
 
     .global-nav-links {
@@ -127,12 +128,15 @@
       font-weight: 400;
       line-height: 1.0;
       letter-spacing: -0.12px;
-      opacity: 0.8;
+      opacity: 0.75;
       transition: opacity 0.2s;
+      cursor: pointer;
     }
 
-    .global-nav-links a:hover {
+    .global-nav-links a:hover,
+    .global-nav-links a.active {
       opacity: 1;
+      font-weight: 600;
     }
 
     /* -------------------------------------------------------------
@@ -168,6 +172,7 @@
       line-height: 1.19;
       letter-spacing: 0.231px;
       color: var(--color-ink);
+      transition: opacity 0.2s;
     }
 
     /* -------------------------------------------------------------
@@ -197,27 +202,6 @@
     .btn-primary:focus-visible {
       outline: 2px solid var(--color-primary-focus);
       outline-offset: 2px;
-    }
-
-    .btn-secondary-pill {
-      background-color: var(--color-canvas);
-      color: var(--color-primary);
-      border: 1px solid var(--color-primary);
-      font-size: 14px;
-      font-weight: 400;
-      line-height: 1.29;
-      letter-spacing: -0.224px;
-      border-radius: var(--rounded-pill);
-      padding: 8px 16px;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      transition: transform 0.15s ease;
-    }
-
-    .btn-secondary-pill:active {
-      transform: scale(0.95);
     }
 
     /* -------------------------------------------------------------
@@ -370,12 +354,31 @@
     }
 
     /* -------------------------------------------------------------
-       Center Feed (Main Posts Feed)
+       Center Views (Main Feed / About Page)
        ------------------------------------------------------------- */
-    .main-feed {
+    .main-view-container {
       display: flex;
       flex-direction: column;
       gap: var(--spacing-lg);
+    }
+
+    .view-section {
+      animation: fadeIn 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .view-section.is-hidden {
+      display: none;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(6px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     .feed-header {
@@ -398,6 +401,7 @@
       border-radius: var(--rounded-lg);
       padding: var(--spacing-lg);
       display: block;
+      margin-bottom: var(--spacing-lg);
       transition: border-color 0.2s ease, transform 0.15s ease;
     }
 
@@ -464,6 +468,73 @@
       display: inline-flex;
       align-items: center;
       gap: 4px;
+    }
+
+    /* -------------------------------------------------------------
+       About View Article
+       ------------------------------------------------------------- */
+    .about-card {
+      background-color: var(--color-canvas);
+      border: 1px solid var(--color-hairline);
+      border-radius: var(--rounded-lg);
+      padding: var(--spacing-xl);
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-lg);
+    }
+
+    .about-lead {
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Pretendard", sans-serif;
+      font-size: 24px;
+      font-weight: 600;
+      line-height: 1.3;
+      letter-spacing: -0.28px;
+      color: var(--color-ink);
+    }
+
+    .about-body {
+      font-size: 17px;
+      line-height: 1.6;
+      color: var(--color-ink-muted-80);
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-md);
+    }
+
+    .about-section-heading {
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Pretendard", sans-serif;
+      font-size: 19px;
+      font-weight: 600;
+      letter-spacing: -0.224px;
+      color: var(--color-ink);
+      margin-top: var(--spacing-sm);
+    }
+
+    .about-tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--spacing-xs);
+      list-style: none;
+      margin-top: var(--spacing-xxs);
+    }
+
+    .about-tag-item {
+      background-color: var(--color-canvas-parchment);
+      color: var(--color-ink);
+      font-size: 14px;
+      padding: 6px 14px;
+      border-radius: var(--rounded-pill);
+      border: 1px solid var(--color-divider-soft);
+    }
+
+    .about-contact-box {
+      background-color: var(--color-surface-pearl);
+      border-radius: var(--rounded-md);
+      padding: var(--spacing-md);
+      border: 1px solid var(--color-divider-soft);
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-xs);
     }
 
     /* -------------------------------------------------------------
@@ -545,7 +616,7 @@
         padding: var(--spacing-lg) var(--spacing-md) var(--spacing-xl);
       }
 
-      .post-card {
+      .post-card, .about-card {
         padding: var(--spacing-md);
       }
     }
@@ -556,11 +627,11 @@
   <!-- 1. Apple Global Nav (44px) -->
   <header class="global-nav">
     <div class="global-nav-container">
-      <span class="global-nav-logo">Rico Kim</span>
+      <span class="global-nav-logo" onclick="navigateTo('posts')">Rico Kim</span>
       <ul class="global-nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#posts">Posts</a></li>
-        <li><a href="https://github.com/RicoKim328" target="_blank">GitHub</a></li>
+        <li><a href="#about" id="nav-about" onclick="navigateTo('about'); return false;">About</a></li>
+        <li><a href="#posts" id="nav-posts" class="active" onclick="navigateTo('posts'); return false;">Posts</a></li>
+        <li><a href="https://github.com/RicoKim328" target="_blank" rel="noopener noreferrer">GitHub</a></li>
       </ul>
     </div>
   </header>
@@ -568,8 +639,8 @@
   <!-- 2. Sub Nav Frosted (52px) -->
   <div class="sub-nav-frosted">
     <div class="sub-nav-container">
-      <span class="sub-nav-title">Blog</span>
-      <a href="https://github.com/RicoKim328" target="_blank" class="btn-primary">Follow</a>
+      <span class="sub-nav-title" id="sub-nav-title">Blog</span>
+      <a href="https://github.com/RicoKim328" target="_blank" rel="noopener noreferrer" class="btn-primary">Follow</a>
     </div>
   </div>
 
@@ -579,15 +650,15 @@
     <!-- Left Sidebar: Profile & Bio + Categories -->
     <aside class="sidebar">
       <!-- Profile Card -->
-      <section class="profile-card" id="about">
+      <section class="profile-card">
         <div class="profile-avatar-container">
           <div class="profile-avatar">👨‍💻</div>
         </div>
         <h2 class="profile-name">Rico Kim</h2>
         <p class="profile-bio">엔지니어링, 아름다운 디자인, 그리고 배움의 과정을 기록하는 공간입니다.</p>
         <div class="profile-links">
-          <a href="https://github.com/RicoKim328" target="_blank">GitHub</a>
-          <a href="mailto:contact@example.com">Email</a>
+          <a href="https://github.com/RicoKim328" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="mailto:hzspir@gmail.com">Email</a>
         </div>
       </section>
 
@@ -596,25 +667,25 @@
         <div class="category-card-header">Categories</div>
         <ul class="category-list">
           <li class="category-item active">
-            <a href="#">
+            <a href="#posts" onclick="navigateTo('posts');">
               <span>전체보기</span>
               <span class="category-count">12</span>
             </a>
           </li>
           <li class="category-item">
-            <a href="#">
+            <a href="#posts" onclick="navigateTo('posts');">
               <span>Design System</span>
               <span class="category-count">4</span>
             </a>
           </li>
           <li class="category-item">
-            <a href="#">
+            <a href="#posts" onclick="navigateTo('posts');">
               <span>Engineering</span>
               <span class="category-count">6</span>
             </a>
           </li>
           <li class="category-item">
-            <a href="#">
+            <a href="#posts" onclick="navigateTo('posts');">
               <span>Essay & Log</span>
               <span class="category-count">2</span>
             </a>
@@ -623,60 +694,102 @@
       </nav>
     </aside>
 
-    <!-- Center Main Feed: Articles List -->
-    <main class="main-feed" id="posts">
-      <div class="feed-header">
-        <h1 class="feed-title">Articles</h1>
-      </div>
+    <!-- Center Main Views -->
+    <main class="main-view-container">
 
-      <!-- Post Card 1 -->
-      <article>
-        <a href="#" class="post-card">
-          <div class="post-meta">
-            <span class="post-chip">Design System</span>
-            <time class="post-date" datetime="2026-08-18">2026.08.18</time>
-          </div>
-          <h2 class="post-card-title">Apple 디자인 시스템으로 블로그 UI 재설계하기</h2>
-          <p class="post-excerpt">SF Pro 타이포그래피의 자간 규칙과 Action Blue 단일 액센트, 절제된 레이아웃을 통해 군더더기 없는 미니멀리즘 인터페이스를 구현하는 과정을 살펴봅니다.</p>
-          <span class="post-read-more">더 읽기 →</span>
-        </a>
-      </article>
+      <!-- View 1: Posts Feed (기본) -->
+      <section id="posts-view" class="view-section">
+        <div class="feed-header">
+          <h1 class="feed-title">Articles</h1>
+        </div>
 
-      <!-- Post Card 2 -->
-      <article>
-        <a href="#" class="post-card">
-          <div class="post-meta">
-            <span class="post-chip">Engineering</span>
-            <time class="post-date" datetime="2026-08-17">2026.08.17</time>
-          </div>
-          <h2 class="post-card-title">GitHub Pages로 시작하는 나만의 정적 블로그</h2>
-          <p class="post-excerpt">복잡한 프레임워크 없이 깔끔한 정적 웹사이트 환경을 구축하고 자동 배포 파이프라인을 완성하는 실전 가이드입니다.</p>
-          <span class="post-read-more">더 읽기 →</span>
-        </a>
-      </article>
+        <!-- Post Card 1 -->
+        <article>
+          <a href="#" class="post-card">
+            <div class="post-meta">
+              <span class="post-chip">Design System</span>
+              <time class="post-date" datetime="2026-08-18">2026.08.18</time>
+            </div>
+            <h2 class="post-card-title">Apple 디자인 시스템으로 블로그 UI 재설계하기</h2>
+            <p class="post-excerpt">SF Pro 타이포그래피의 자간 규칙과 Action Blue 단일 액센트, 절제된 레이아웃을 통해 군더더기 없는 미니멀리즘 인터페이스를 구현하는 과정을 살펴봅니다.</p>
+            <span class="post-read-more">더 읽기 →</span>
+          </a>
+        </article>
 
-      <!-- Post Card 3 -->
-      <article>
-        <a href="#" class="post-card">
-          <div class="post-meta">
-            <span class="post-chip">Essay & Log</span>
-            <time class="post-date" datetime="2026-08-10">2026.08.10</time>
+        <!-- Post Card 2 -->
+        <article>
+          <a href="#" class="post-card">
+            <div class="post-meta">
+              <span class="post-chip">Engineering</span>
+              <time class="post-date" datetime="2026-08-17">2026.08.17</time>
+            </div>
+            <h2 class="post-card-title">GitHub Pages로 시작하는 나만의 정적 블로그</h2>
+            <p class="post-excerpt">복잡한 프레임워크 없이 깔끔한 정적 웹사이트 환경을 구축하고 자동 배포 파이프라인을 완성하는 실전 가이드입니다.</p>
+            <span class="post-read-more">더 읽기 →</span>
+          </a>
+        </article>
+
+        <!-- Post Card 3 -->
+        <article>
+          <a href="#" class="post-card">
+            <div class="post-meta">
+              <span class="post-chip">Essay & Log</span>
+              <time class="post-date" datetime="2026-08-10">2026.08.10</time>
+            </div>
+            <h2 class="post-card-title">배움과 기록의 지속 가능성에 대하여</h2>
+            <p class="post-excerpt">매일 학습한 지식을 정돈하고 아카이빙하는 것이 개발자로서의 성장에 어떤 긍정적인 영향을 미치는지 정리해보았습니다.</p>
+            <span class="post-read-more">더 읽기 →</span>
+          </a>
+        </article>
+      </section>
+
+      <!-- View 2: About Rico (소개 글 섹션) -->
+      <section id="about-view" class="view-section is-hidden">
+        <div class="feed-header">
+          <h1 class="feed-title">About</h1>
+        </div>
+
+        <article class="about-card">
+          <h2 class="about-lead">안녕하세요, 엔지니어링과 간결한 인터페이스 디자인을 탐구하는 Rico Kim입니다.</h2>
+          
+          <div class="about-body">
+            <p>
+              복잡한 문제를 단순하고 명확하게 해결하는 소프트웨어를 만드는 것을 좋아합니다. 사용자가 마주하는 화면의 타이포그래피 한 줄부터, 보이지 않는 시스템의 견고함까지 세심하게 고민합니다.
+            </p>
+
+            <h3 class="about-section-heading">관심사 및 기술 분야</h3>
+            <ul class="about-tag-list">
+              <li class="about-tag-item">Web Development</li>
+              <li class="about-tag-item">Design Systems</li>
+              <li class="about-tag-item">UI / UX Architecture</li>
+              <li class="about-tag-item">Clean Code</li>
+              <li class="about-tag-item">Static Web & Automation</li>
+            </ul>
+
+            <h3 class="about-section-heading">블로그를 운영하는 이유</h3>
+            <p>
+              빠르게 변화하는 기술 환경 속에서 매일 배우고 깨달은 점을 체계적으로 정돈하고 공유하기 위해 이 공간을 만들었습니다. Apple의 간결하고 본질에 집중하는 철학을 바탕으로 디자인되었습니다.
+            </p>
+
+            <div class="about-contact-box">
+              <strong>Contact & Links</strong>
+              <div>이메일: <a href="mailto:hzspir@gmail.com">hzspir@gmail.com</a></div>
+              <div>깃허브: <a href="https://github.com/RicoKim328" target="_blank" rel="noopener noreferrer">github.com/RicoKim328</a></div>
+            </div>
           </div>
-          <h2 class="post-card-title">배움과 기록의 지속 가능성에 대하여</h2>
-          <p class="post-excerpt">매일 학습한 지식을 정돈하고 아카이빙하는 것이 개발자로서의 성장에 어떤 긍정적인 영향을 미치는지 정리해보았습니다.</p>
-          <span class="post-read-more">더 읽기 →</span>
-        </a>
-      </article>
+        </article>
+      </section>
+
     </main>
 
   </div>
 
-  <!-- Footer -->
+  <!-- Footer (About Rico 링크 삭제 완료) -->
   <footer class="site-footer">
     <div class="footer-container">
       <ul class="footer-dense-links">
-        <li><a href="#about">About Rico</a></li>
-        <li><a href="https://github.com/RicoKim328" target="_blank">GitHub</a></li>
+        <li><a href="https://github.com/RicoKim328" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+        <li><a href="mailto:hzspir@gmail.com">Contact</a></li>
         <li><a href="#">RSS Feed</a></li>
       </ul>
       <div class="footer-legal">
@@ -684,6 +797,53 @@
       </div>
     </div>
   </footer>
+
+  <!-- View Switching Script -->
+  <script>
+    function navigateTo(viewName) {
+      const postsView = document.getElementById('posts-view');
+      const aboutView = document.getElementById('about-view');
+      const navAbout = document.getElementById('nav-about');
+      const navPosts = document.getElementById('nav-posts');
+      const subNavTitle = document.getElementById('sub-nav-title');
+
+      if (viewName === 'about') {
+        postsView.classList.add('is-hidden');
+        aboutView.classList.remove('is-hidden');
+        navAbout.classList.add('active');
+        navPosts.classList.remove('active');
+        subNavTitle.textContent = 'About';
+        window.location.hash = 'about';
+      } else {
+        aboutView.classList.add('is-hidden');
+        postsView.classList.remove('is-hidden');
+        navPosts.classList.add('active');
+        navAbout.classList.remove('active');
+        subNavTitle.textContent = 'Blog';
+        window.location.hash = 'posts';
+      }
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Hash-based routing initialization
+    window.addEventListener('DOMContentLoaded', () => {
+      const hash = window.location.hash.replace('#', '');
+      if (hash === 'about') {
+        navigateTo('about');
+      } else {
+        navigateTo('posts');
+      }
+    });
+
+    window.addEventListener('hashchange', () => {
+      const hash = window.location.hash.replace('#', '');
+      if (hash === 'about') {
+        navigateTo('about');
+      } else {
+        navigateTo('posts');
+      }
+    });
+  </script>
 
 </body>
 </html>
