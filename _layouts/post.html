@@ -1,0 +1,23 @@
+---
+layout: default
+sub_title: "Article"
+active_nav: "posts"
+---
+
+<article class="post-detail-card">
+  <header class="post-detail-header">
+    <div class="post-meta">
+      {% if page.category %}
+      <span class="post-chip">{{ page.category }}</span>
+      {% endif %}
+      <time class="post-date" datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%Y.%m.%d" }}</time>
+    </div>
+    <h1 class="post-detail-title">{{ page.title }}</h1>
+  </header>
+
+  <div class="post-content">
+    {{ content }}
+  </div>
+
+  <a href="{{ '/' | relative_url }}" class="post-back-link">← Back to all articles</a>
+</article>

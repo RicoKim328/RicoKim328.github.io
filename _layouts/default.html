@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+{% include head.html %}
+<body>
+
+  <!-- Global Nav -->
+  {% include global-nav.html %}
+
+  <!-- Sub Nav -->
+  {% include sub-nav.html %}
+
+  <!-- Two-Column Layout Wrapper -->
+  <div class="layout-wrapper">
+    <!-- Left Sidebar -->
+    {% include sidebar.html %}
+
+    <!-- Center Content -->
+    <main class="main-view-container">
+      {{ content }}
+    </main>
+  </div>
+
+  <!-- Footer -->
+  {% include footer.html %}
+
+  <!-- Main Scripts -->
+  <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+</body>
+</html>

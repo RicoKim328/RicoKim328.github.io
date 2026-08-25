@@ -1,0 +1,10 @@
+<header class="global-nav">
+  <div class="global-nav-container">
+    <a href="{{ '/' | relative_url }}" class="global-nav-logo">{{ site.name }}</a>
+    <ul class="global-nav-links">
+      <li><a href="{{ '/about/' | relative_url }}" {% if page.url == '/about/' or page.active_nav == 'about' %}class="active"{% endif %}>About</a></li>
+      <li><a href="{{ '/' | relative_url }}" {% if page.url == '/' or page.active_nav == 'posts' %}class="active"{% endif %}>Posts</a></li>
+      <li><a href="https://github.com/{{ site.github_username }}" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+    </ul>
+  </div>
+</header>

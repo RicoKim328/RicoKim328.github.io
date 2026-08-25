@@ -1,0 +1,13 @@
+<footer class="site-footer">
+  <div class="footer-container">
+    <ul class="footer-dense-links">
+      <li><a href="https://github.com/{{ site.github_username }}" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+      <li><a href="https://www.linkedin.com/in/{{ site.linkedin_username }}/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+      <li><a href="mailto:{{ site.email }}">Contact</a></li>
+      <li><a href="{{ '/feed.xml' | relative_url }}">RSS Feed</a></li>
+    </ul>
+    <div class="footer-legal">
+      <p>Copyright © {{ 'now' | date: "%Y" }} {{ site.name }}. All rights reserved.</p>
+    </div>
+  </div>
+</footer>

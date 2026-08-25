@@ -1,0 +1,16 @@
+title: "Rico Kim — Blog"
+name: "Rico Kim"
+email: "hzspir@gmail.com"
+description: "Aerospace & Embedded Software | AI Hobbyist"
+baseurl: ""
+url: "https://RicoKim328.github.io"
+github_username: "RicoKim328"
+linkedin_username: "ricokim328"
+
+permalink: /posts/:year-:month-:day-:title/
+
+markdown: kramdown
+highlighter: rouge
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge

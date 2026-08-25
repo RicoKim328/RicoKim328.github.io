@@ -1,0 +1,47 @@
+<aside class="sidebar">
+  <!-- Profile Card -->
+  <section class="profile-card">
+    <div class="profile-avatar-container">
+      <img src="{{ '/Picture/profile.jpg' | relative_url }}" alt="{{ site.name }} Profile" class="profile-avatar">
+    </div>
+    <h2 class="profile-name">{{ site.name }}</h2>
+    <div class="profile-tagline">Aerospace &amp; Embedded Software | AI Hobbyist</div>
+    <p class="profile-bio">Exploring space tech, low-level code, and whatever AI model caught my attention today</p>
+    <div class="profile-links">
+      <a href="https://github.com/{{ site.github_username }}" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a href="https://www.linkedin.com/in/{{ site.linkedin_username }}/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="mailto:{{ site.email }}">Email</a>
+    </div>
+  </section>
+
+  <!-- Category Filter List -->
+  <nav class="category-card" aria-label="Blog Categories">
+    <div class="category-card-header">Categories</div>
+    <ul class="category-list" id="category-list">
+      <li class="category-item active" data-category="All">
+        <a href="{% if page.url != '/' %}{{ '/' | relative_url }}{% else %}#posts{% endif %}" onclick="if (typeof selectCategory === 'function') { selectCategory('All'); return false; }">
+          <span>All</span>
+          <span class="category-count" id="count-all">0</span>
+        </a>
+      </li>
+      <li class="category-item" data-category="Design System">
+        <a href="{% if page.url != '/' %}{{ '/' | relative_url }}{% else %}#posts{% endif %}" onclick="if (typeof selectCategory === 'function') { selectCategory('Design System'); return false; }">
+          <span>Design System</span>
+          <span class="category-count" id="count-design-system">0</span>
+        </a>
+      </li>
+      <li class="category-item" data-category="Engineering">
+        <a href="{% if page.url != '/' %}{{ '/' | relative_url }}{% else %}#posts{% endif %}" onclick="if (typeof selectCategory === 'function') { selectCategory('Engineering'); return false; }">
+          <span>Engineering</span>
+          <span class="category-count" id="count-engineering">0</span>
+        </a>
+      </li>
+      <li class="category-item" data-category="Essay &amp; Log">
+        <a href="{% if page.url != '/' %}{{ '/' | relative_url }}{% else %}#posts{% endif %}" onclick="if (typeof selectCategory === 'function') { selectCategory('Essay & Log'); return false; }">
+          <span>Essay &amp; Log</span>
+          <span class="category-count" id="count-essay-log">0</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+</aside>
