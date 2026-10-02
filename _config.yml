@@ -14,3 +14,11 @@ highlighter: rouge
 kramdown:
   input: GFM
   syntax_highlighter: rouge
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - README.md
+  - DESIGN-apple.md
+  - .gitignore

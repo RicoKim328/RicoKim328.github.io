@@ -2,7 +2,7 @@
   <!-- Profile Card -->
   <section class="profile-card">
     <div class="profile-avatar-container">
-      <img src="{{ '/Picture/profile.jpg' | relative_url }}" alt="{{ site.name }} Profile" class="profile-avatar">
+      <img src="{{ '/assets/images/profile.jpg' | relative_url }}" alt="{{ site.name }} Profile" class="profile-avatar">
     </div>
     <h2 class="profile-name">{{ site.name }}</h2>
     <div class="profile-tagline">Aerospace &amp; Embedded Software | AI Hobbyist</div>
@@ -14,34 +14,27 @@
     </div>
   </section>
 
-  <!-- Category Filter List -->
+  <!-- Category Filter List (generated from posts) -->
   <nav class="category-card" aria-label="Blog Categories">
     <div class="category-card-header">Categories</div>
     <ul class="category-list" id="category-list">
       <li class="category-item active" data-category="All">
         <a href="{% if page.url != '/' %}{{ '/' | relative_url }}{% else %}#posts{% endif %}" onclick="if (typeof selectCategory === 'function') { selectCategory('All'); return false; }">
           <span>All</span>
-          <span class="category-count" id="count-all">0</span>
+          <span class="category-count" id="count-all">{{ site.posts.size }}</span>
         </a>
       </li>
-      <li class="category-item" data-category="Design System">
-        <a href="{% if page.url != '/' %}{{ '/' | relative_url }}{% else %}#posts{% endif %}" onclick="if (typeof selectCategory === 'function') { selectCategory('Design System'); return false; }">
-          <span>Design System</span>
-          <span class="category-count" id="count-design-system">0</span>
+      {% assign sorted_categories = site.categories | sort %}
+      {% for category in sorted_categories %}
+      {% assign cat_name = category[0] %}
+      {% assign cat_posts = category[1] %}
+      <li class="category-item" data-category="{{ cat_name | escape }}">
+        <a href="{% if page.url != '/' %}{{ '/' | relative_url }}{% else %}#posts{% endif %}" onclick="if (typeof selectCategory === 'function') { selectCategory({{ cat_name | jsonify }}); return false; }">
+          <span>{{ cat_name | escape }}</span>
+          <span class="category-count">{{ cat_posts.size }}</span>
         </a>
       </li>
-      <li class="category-item" data-category="Engineering">
-        <a href="{% if page.url != '/' %}{{ '/' | relative_url }}{% else %}#posts{% endif %}" onclick="if (typeof selectCategory === 'function') { selectCategory('Engineering'); return false; }">
-          <span>Engineering</span>
-          <span class="category-count" id="count-engineering">0</span>
-        </a>
-      </li>
-      <li class="category-item" data-category="Essay &amp; Log">
-        <a href="{% if page.url != '/' %}{{ '/' | relative_url }}{% else %}#posts{% endif %}" onclick="if (typeof selectCategory === 'function') { selectCategory('Essay & Log'); return false; }">
-          <span>Essay &amp; Log</span>
-          <span class="category-count" id="count-essay-log">0</span>
-        </a>
-      </li>
+      {% endfor %}
     </ul>
   </nav>
 </aside>

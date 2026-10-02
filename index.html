@@ -30,11 +30,12 @@ active_nav: "posts"
   <!-- Articles List Container -->
   <div id="articles-container" class="articles-container">
     {% for post in site.posts %}
-    <article class="post-article-item" data-category="{{ post.category | default: 'All' }}" data-date="{{ post.date | date: '%Y-%m-%d' }}">
+    {% assign post_category = post.category | default: post.categories.first %}
+    <article class="post-article-item" data-category="{{ post_category | default: 'Uncategorized' | escape }}" data-date="{{ post.date | date: '%Y-%m-%d' }}">
       <a href="{{ post.url | relative_url }}" class="post-card">
         <div class="post-meta">
-          {% if post.category %}
-          <span class="post-chip">{{ post.category }}</span>
+          {% if post_category %}
+          <span class="post-chip">{{ post_category | escape }}</span>
           {% endif %}
           <time class="post-date" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y.%m.%d" }}</time>
         </div>
