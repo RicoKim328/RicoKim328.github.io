@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Apple 디자인 시스템으로 블로그 구축하기"
-category: "Design System"
+category: "Essay & Log"
 date: 2026-08-26 14:00:00 +0900
 ---
 

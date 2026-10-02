@@ -1,7 +1,9 @@
 ---
 layout: post
 title: "2026-10-01 미국 시장 뉴스 요약"
-category: Market News
+category: Market Brief
+description: "국채 금리와 유가, 액센츄어·나이키 실적 등 미국 시장의 주요 뉴스를 정리했습니다."
+hero_image: /assets/market-news/2026-10-01-illustration.webp
 date: 2026-10-01 09:15:00 +0900
 ---
 

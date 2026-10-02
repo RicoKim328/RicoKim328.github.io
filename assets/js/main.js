@@ -17,7 +17,9 @@ function initArticlesController() {
   const categoryItems = document.querySelectorAll('#category-list .category-item');
   const sortSelect = document.getElementById('sort-select');
 
-  let currentCategory = 'All';
+  const validCategories = new Set(Array.from(categoryItems, item => item.getAttribute('data-category')));
+  const requestedCategory = new URLSearchParams(window.location.search).get('category');
+  let currentCategory = validCategories.has(requestedCategory) ? requestedCategory : 'All';
   let currentSort = 'newest';
 
   // Category counts calculation
@@ -84,20 +86,41 @@ function initArticlesController() {
     }
   }
 
-  // Category Click Event
-  window.selectCategory = function(categoryName) {
+  function selectCategory(categoryName, updateUrl = true) {
+    if (!validCategories.has(categoryName)) return;
     currentCategory = categoryName;
-
     categoryItems.forEach(item => {
-      if (item.getAttribute('data-category') === categoryName) {
-        item.classList.add('active');
-      } else {
-        item.classList.remove('active');
+      const selected = item.getAttribute('data-category') === categoryName;
+      item.classList.toggle('active', selected);
+      const link = item.querySelector('a');
+      if (link) {
+        if (selected) link.setAttribute('aria-current', 'page');
+        else link.removeAttribute('aria-current');
       }
     });
-
+    if (updateUrl) {
+      const url = new URL(window.location.href);
+      if (categoryName === 'All') url.searchParams.delete('category');
+      else url.searchParams.set('category', categoryName);
+      url.hash = 'posts-view';
+      window.history.pushState({ category: categoryName }, '', url);
+    }
     applyFilterAndSort();
-  };
+  }
+
+  categoryItems.forEach(item => {
+    const link = item.querySelector('a');
+    if (!link) return;
+    link.addEventListener('click', event => {
+      event.preventDefault();
+      selectCategory(item.getAttribute('data-category'));
+    });
+  });
+
+  window.addEventListener('popstate', () => {
+    const category = new URLSearchParams(window.location.search).get('category');
+    selectCategory(validCategories.has(category) ? category : 'All', false);
+  });
 
   // Sort Change Event
   window.changeSortOrder = function(sortOrder) {
@@ -112,5 +135,5 @@ function initArticlesController() {
   }
 
   updateCategoryCounts();
-  applyFilterAndSort();
+  selectCategory(currentCategory, false);
 }

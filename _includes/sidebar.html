@@ -14,32 +14,30 @@
     </div>
   </section>
 
-  <!-- Category Filter List -->
+  {% assign market_posts = site.posts | where: 'category', 'Market Brief' %}
+  {% assign essay_posts = site.posts | where: 'category', 'Essay & Log' %}
+  {% assign ai_posts = site.posts | where: 'category', 'AI' %}
   <nav class="category-card" aria-label="Blog Categories">
     <div class="category-card-header">Categories</div>
     <ul class="category-list" id="category-list">
-      <li class="category-item active" data-category="All">
-        <a href="{% if page.url != '/' %}{{ '/' | relative_url }}{% else %}#posts{% endif %}" onclick="if (typeof selectCategory === 'function') { selectCategory('All'); return false; }">
-          <span>All</span>
-          <span class="category-count" id="count-all">0</span>
+      <li class="category-item{% unless page.category %} active{% endunless %}" data-category="All">
+        <a href="{{ '/' | relative_url }}#posts-view">
+          <span>All</span><span class="category-count" id="count-all">{{ site.posts.size }}</span>
         </a>
       </li>
-      <li class="category-item" data-category="Design System">
-        <a href="{% if page.url != '/' %}{{ '/' | relative_url }}{% else %}#posts{% endif %}" onclick="if (typeof selectCategory === 'function') { selectCategory('Design System'); return false; }">
-          <span>Design System</span>
-          <span class="category-count" id="count-design-system">0</span>
+      <li class="category-item{% if page.category == 'Market Brief' %} active{% endif %}" data-category="Market Brief">
+        <a href="{{ '/' | relative_url }}?category=Market%20Brief#posts-view">
+          <span>Market Brief</span><span class="category-count" id="count-market-brief">{{ market_posts.size }}</span>
         </a>
       </li>
-      <li class="category-item" data-category="Engineering">
-        <a href="{% if page.url != '/' %}{{ '/' | relative_url }}{% else %}#posts{% endif %}" onclick="if (typeof selectCategory === 'function') { selectCategory('Engineering'); return false; }">
-          <span>Engineering</span>
-          <span class="category-count" id="count-engineering">0</span>
+      <li class="category-item{% if page.category == 'Essay & Log' %} active{% endif %}" data-category="Essay &amp; Log">
+        <a href="{{ '/' | relative_url }}?category=Essay%20%26%20Log#posts-view">
+          <span>Essay &amp; Log</span><span class="category-count" id="count-essay-log">{{ essay_posts.size }}</span>
         </a>
       </li>
-      <li class="category-item" data-category="Essay &amp; Log">
-        <a href="{% if page.url != '/' %}{{ '/' | relative_url }}{% else %}#posts{% endif %}" onclick="if (typeof selectCategory === 'function') { selectCategory('Essay & Log'); return false; }">
-          <span>Essay &amp; Log</span>
-          <span class="category-count" id="count-essay-log">0</span>
+      <li class="category-item{% if page.category == 'AI' %} active{% endif %}" data-category="AI">
+        <a href="{{ '/' | relative_url }}?category=AI#posts-view">
+          <span>AI</span><span class="category-count" id="count-ai">{{ ai_posts.size }}</span>
         </a>
       </li>
     </ul>

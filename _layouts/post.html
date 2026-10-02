@@ -8,7 +8,7 @@ active_nav: "posts"
   <header class="post-detail-header">
     <div class="post-meta">
       {% if page.category %}
-      <span class="post-chip">{{ page.category }}</span>
+      <a class="post-chip" href="{{ '/' | relative_url }}?category={{ page.category | url_encode }}#posts-view">{{ page.category }}</a>
       {% endif %}
       <time class="post-date" datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%Y.%m.%d" }}</time>
     </div>

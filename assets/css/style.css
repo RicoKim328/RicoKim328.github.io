@@ -483,6 +483,16 @@ a {
   transition: border-color 0.2s ease, transform 0.15s ease;
 }
 
+.post-card-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 280px;
+  object-fit: cover;
+  border-radius: var(--rounded-md);
+  margin-bottom: var(--spacing-md);
+}
+
 .post-card:hover {
   border-color: var(--color-primary-focus);
 }
@@ -506,6 +516,7 @@ a {
   letter-spacing: -0.12px;
   padding: 4px 10px;
   border-radius: var(--rounded-pill);
+  text-decoration: none;
 }
 
 .post-date {

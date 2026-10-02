@@ -32,6 +32,9 @@ active_nav: "posts"
     {% for post in site.posts %}
     <article class="post-article-item" data-category="{{ post.category | default: 'All' }}" data-date="{{ post.date | date: '%Y-%m-%d' }}">
       <a href="{{ post.url | relative_url }}" class="post-card">
+        {% if post.hero_image %}
+        <img class="post-card-image" src="{{ post.hero_image | relative_url }}" alt="{{ post.title }} 주제의 AI 생성 삽화" loading="lazy">
+        {% endif %}
         <div class="post-meta">
           {% if post.category %}
           <span class="post-chip">{{ post.category }}</span>
@@ -39,7 +42,7 @@ active_nav: "posts"
           <time class="post-date" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y.%m.%d" }}</time>
         </div>
         <h2 class="post-card-title">{{ post.title }}</h2>
-        <p class="post-excerpt">{{ post.excerpt | strip_html | strip_newlines | truncate: 180 }}</p>
+        <p class="post-excerpt">{% if post.description %}{{ post.description }}{% else %}{{ post.excerpt | strip_html | strip_newlines | truncate: 180 }}{% endif %}</p>
         <span class="post-read-more">Read more →</span>
       </a>
     </article>
