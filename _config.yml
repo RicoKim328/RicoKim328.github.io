@@ -14,3 +14,11 @@ highlighter: rouge
 kramdown:
   input: GFM
   syntax_highlighter: rouge
+
+timezone: Asia/Seoul
+
+exclude:
+  - vendor
+  - README.md
+  - DESIGN-apple.md
+  - .gitignore
