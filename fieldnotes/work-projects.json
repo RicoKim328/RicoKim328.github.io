@@ -1,0 +1,110 @@
+[
+  {
+    "id": "aocs-refueling",
+    "title": "궤도상 위성 재급유 AOCS 설계",
+    "original": "Attitude and Orbit Control System (AOCS) Design for In-Orbit Satellite Refueling",
+    "category": "위성 자세·궤도 제어",
+    "period": "2025.09 — 현재",
+    "ongoing": true,
+    "description": "궤도상 위성 재급유 임무를 위한 자세·궤도 제어 시스템(AOCS) 설계 연구.",
+    "contributions": [],
+    "tags": [
+      "MATLAB",
+      "Simulink",
+      "AOCS"
+    ],
+    "organization": "부산대학교",
+    "note": "프로젝트 주제 기준 · 세부 수행 내용은 추후 추가"
+  },
+  {
+    "id": "cpsat",
+    "title": "CPSat 비행 소프트웨어 개발",
+    "original": "2022 CUBESAT CONTEST · Cosmic Pulse nano-Satellite",
+    "category": "큐브위성 · 비행 소프트웨어",
+    "period": "2024.08 — 현재",
+    "ongoing": true,
+    "description": "NASA core Flight System(cFS) 아키텍처 기반의 CPSat 임베디드 소프트웨어 개발과 통합 시험.",
+    "contributions": [
+      "SW/HW 구성 요소별 단위 시험 수행",
+      "전체 HILS·FILS 시험 주도"
+    ],
+    "tags": [
+      "Embedded C",
+      "NASA cFS",
+      "HILS / FILS"
+    ],
+    "organization": "부산대학교"
+  },
+  {
+    "id": "reentry",
+    "title": "재진입 임무 궤적·기술 연구",
+    "original": "Investigation of Mission Trajectories and Technologies for Re-entry Vehicles",
+    "category": "임무 설계 · 최적 궤적",
+    "period": "2025.07 — 2026.07",
+    "ongoing": false,
+    "description": "지구 및 타 행성을 대상으로 진입·재진입 시나리오를 조사하고, 임무 궤적을 설계·분석한 연구.",
+    "contributions": [
+      "지구–화성 행성 간 전이 최적 궤적 성능 분석",
+      "ISS 도킹 및 대기권 재진입 임무 궤적 설계·분석"
+    ],
+    "tags": [
+      "MATLAB",
+      "FreeFlyer",
+      "Trajectory Design"
+    ],
+    "organization": "부산대학교"
+  },
+  {
+    "id": "sigint",
+    "title": "SIGINT 편대비행·자세 제어",
+    "original": "Formation Flying and Attitude Control for SIGINT",
+    "category": "강인 제어 · 위성 시스템",
+    "period": "2025.02 — 2025.08",
+    "ongoing": false,
+    "description": "방사형 안테나와 태양전지판 등 유연 부속 구조물을 가진 위성을 위한 강인 자세 제어 시스템(ACS) 설계.",
+    "contributions": [],
+    "tags": [
+      "MATLAB",
+      "Simulink",
+      "Robust Control"
+    ],
+    "organization": "부산대학교"
+  },
+  {
+    "id": "sad-nerf",
+    "title": "SaD NeRF 위성영상 DSM 연구",
+    "original": "DSM Generation Research via Satellite Imagery Based on the NeRF Algorithm: SaD NeRF",
+    "category": "컴퓨터 비전 · 위성영상",
+    "period": "2024.03 — 2024.12",
+    "ongoing": false,
+    "description": "NeRF 알고리즘을 기반으로 위성영상에서 DSM(Digital Surface Model)을 생성하는 연구.",
+    "contributions": [],
+    "tags": [
+      "NeRF",
+      "Computer Vision",
+      "3D Rendering"
+    ],
+    "organization": "부산대학교",
+    "note": "프로젝트 주제 기준 · 세부 수행 내용은 추후 추가"
+  },
+  {
+    "id": "stm32",
+    "title": "STM32 급발진·충돌 감지 시스템",
+    "original": "Automotive SUA & Collision Detection System using STM32 and uC/OS-III",
+    "category": "임베디드 · 실시간 시스템",
+    "period": "2023.09 — 2023.12",
+    "ongoing": false,
+    "description": "STM32와 uC/OS-III RTOS 기반으로 차량 급발진(SUA) 및 충돌을 실시간 감지하는 시스템.",
+    "contributions": [
+      "차량 전기 시스템·센서 데이터 모니터링",
+      "위험 감지·운전자 경고 및 사전 설정 안전 대응"
+    ],
+    "tags": [
+      "STM32",
+      "C",
+      "uC/OS-III"
+    ],
+    "organization": "부산대학교",
+    "repository": "https://github.com/DevWithAlgorithm/AutoEmergencyControl-STM32"
+  }
+]
