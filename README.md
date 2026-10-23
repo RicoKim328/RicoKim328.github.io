@@ -1,28 +1,11 @@
-# RicoKim328.github.io
+# Rico Kim — Portfolio
 
-Personal blog (Jekyll + GitHub Pages).
+항공우주·제어·임베디드 소프트웨어 분야의 연구와 개발 프로젝트를 소개합니다.
 
-## Publish flow
+- 홈페이지: https://ricokim328.github.io/
+- 업무·연구 프로젝트 6개와 GitHub 프로젝트 3개를 탭으로 분리합니다.
+- 소개, 학력, 기술, 연락처를 제공합니다.
+- 가독성을 위해 밝은 테마로 고정합니다.
+- 블로그 글과 RSS는 제공하지 않습니다.
 
-1. Morning drafts land in `_drafts/` (not published).
-2. To publish: move the file into `_posts/YYYY-MM-DD-slug.md`.
-3. Commit & push `main` → GitHub Pages builds the site.
-
-Local draft preview:
-
-```bash
-docker run --rm -p 4000:4000 -v "$PWD:/srv/jekyll" jekyll/jekyll:4.2.2 jekyll serve --drafts --host 0.0.0.0
-```
-
-Production-like build (drafts excluded):
-
-```bash
-docker run --rm -v "$PWD:/srv/jekyll" -e JEKYLL_ENV=production jekyll/jekyll:4.2.2 jekyll build
-```
-
-## Content
-
-- Published posts: `_posts/`
-- Drafts: `_drafts/` (template: `_drafts/.template-market-brief.md`)
-- Images: `Picture/`, `assets/market-news/`
-- Categories come from post front matter (`category`)
+화면과 프로젝트 내용 수정 방법은 [FIELDNOTES.md](FIELDNOTES.md)를 참고하세요.
