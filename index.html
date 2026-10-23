@@ -1,58 +1,55 @@
 ---
-layout: default
-title: "Articles"
-sub_title: "Blog"
-active_nav: "posts"
+layout: null
 ---
-
-<section id="posts-view" class="view-section">
-  <div class="feed-header">
-    <div class="feed-header-left">
-      <h1 class="feed-title" id="feed-title">Articles</h1>
-      <span class="feed-count" id="feed-count">{{ site.posts.size }} {% if site.posts.size == 1 %}article{% else %}articles{% endif %}</span>
-    </div>
-    <div class="feed-header-right">
-      <div class="sort-control">
-        <label for="sort-select" class="sort-label">Sort:</label>
-        <div class="sort-select-wrapper">
-          <select id="sort-select" class="sort-select">
-            <option value="newest">Newest First</option>
-            <option value="oldest">Oldest First</option>
-          </select>
-          <svg class="sort-chevron" width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </div>
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Rico Kim — Fieldnotes</title>
+  <meta name="description" content="항공우주와 임베디드 소프트웨어, AI를 탐구하는 Rico Kim의 포트폴리오와 기록.">
+  <meta name="theme-color" content="#f7f8f4">
+  <meta property="og:title" content="Rico Kim — Fieldnotes">
+  <meta property="og:description" content="항공우주와 임베디드 소프트웨어, AI를 탐구하는 포트폴리오와 기록.">
+  <meta property="og:type" content="website">
+  <link rel="icon" type="image/svg+xml" href="./fieldnotes/favicon.svg">
+  <link rel="stylesheet" href="./fieldnotes/style.css">
+  <link rel="alternate" type="application/rss+xml" title="Rico Kim Blog" href="https://RicoKim328.github.io/feed.xml">
+  <script src="./fieldnotes/main.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">본문으로 이동</a>
+  <header class="header wrap">
+    <a href="#home" class="brand" aria-label="Rico Fieldnotes 홈"><span class="mark">r<span>·</span></span><span>rico<span class="brand-separator"> / </span><span class="brand-note">fieldnotes</span></span></a>
+    <nav aria-label="주 메뉴"><a href="#projects" data-open-project="work">업무·연구</a><a href="#projects" data-open-project="github">GitHub</a><a href="#journal">기록</a><a href="#about">소개</a></nav>
+    <div class="header-tools"><button id="theme-toggle" class="icon-button" aria-label="어두운 테마로 전환"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.4 15.2A8.7 8.7 0 0 1 8.8 3.6a8.8 8.8 0 1 0 11.6 11.6Z"/></svg></button><a class="github-top" href="https://github.com/RicoKim328" target="_blank" rel="noopener noreferrer">GitHub <span>↗</span></a></div>
+  </header>
+  <main id="main">
+    <section id="home" class="hero wrap">
+      <div class="hero-copy"><div class="eyebrow"><span class="live-dot"></span> ENGINEERING · EXPLORATION · EVERYDAY</div><h1>호기심을 설계하고,<br>배움을 <span>기록합니다.</span></h1><p class="hero-description">안녕하세요, Rico입니다.<br>우주를 향한 공학부터 일상을 바꾸는 코드까지.<br>만들고, 실험하고, 이해해 가는 과정을 남깁니다.</p><div class="hero-actions"><a class="button primary" href="#projects">프로젝트 둘러보기 <span>↗</span></a><a class="text-link" href="#journal">최근 기록 읽기 <span>→</span></a></div><div class="hero-foot"><span class="tiny-cross">+</span><span>AEROSPACE & EMBEDDED SOFTWARE</span><span class="coordinate">BASED IN KOREA</span></div></div>
+      <div class="hero-art" role="img" aria-label="위성 궤도와 공학 노트를 모티브로 한 그래픽">
+        <div class="art-head"><span>FIELD STUDY — 001</span><span>↗</span></div>
+        <svg class="orbit-art" viewBox="0 0 480 360" fill="none" aria-hidden="true"><defs><pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M24 0H0V24" stroke="currentColor" stroke-opacity=".10" stroke-width=".6"/></pattern></defs><path fill="url(#grid)" d="M0 0h480v360H0z"/><g stroke="currentColor"><circle cx="240" cy="180" r="76" stroke-width=".8"/><ellipse cx="240" cy="180" rx="30" ry="76" stroke-width=".6"/><ellipse cx="240" cy="180" rx="58" ry="76" stroke-width=".6"/><ellipse cx="240" cy="180" rx="76" ry="27" stroke-width=".6"/><ellipse cx="240" cy="180" rx="76" ry="54" stroke-width=".6"/><path d="M164 180h152M240 104v152" stroke-width=".6"/><ellipse cx="240" cy="180" rx="181" ry="65" transform="rotate(-32 240 180)" stroke-width="1.2"/><ellipse cx="240" cy="180" rx="164" ry="102" transform="rotate(39 240 180)" stroke-opacity=".35" stroke-dasharray="3 5"/><path d="M240 58v34m0 176v34M105 180h38m195 0h38" stroke-opacity=".4"/><path d="m237 58 3-7 3 7M370 177l7 3-7 3" stroke-width=".8"/><circle cx="375" cy="97" r="6" fill="currentColor"/><circle cx="375" cy="97" r="13" stroke-opacity=".25"/><path d="m375 83 19-15h30" stroke-width=".7"/></g><text x="400" y="60" fill="currentColor" font-size="10" font-family="monospace">EXPLORE</text><text x="251" y="69" fill="currentColor" opacity=".6" font-size="9" font-family="monospace">z</text><text x="381" y="185" fill="currentColor" opacity=".6" font-size="9" font-family="monospace">x</text></svg>
+        <div class="art-foot"><div><span class="art-label">A CONSTANT WORK IN PROGRESS</span><strong>Stay curious.</strong></div><span class="art-cross">✳</span></div>
+        <div class="note-stamp">ideas → experiments → understanding</div>
       </div>
-    </div>
-  </div>
-
-  <!-- Articles List Container -->
-  <div id="articles-container" class="articles-container">
-    {% for post in site.posts %}
-    <article class="post-article-item" data-category="{{ post.category | default: 'All' }}" data-date="{{ post.date | date: '%Y-%m-%d' }}">
-      <a href="{{ post.url | relative_url }}" class="post-card">
-        {% if post.hero_image %}
-        <img class="post-card-image" src="{{ post.hero_image | relative_url }}" alt="{{ post.title }} 주제의 AI 생성 삽화" loading="lazy">
-        {% endif %}
-        <div class="post-meta">
-          {% if post.category %}
-          <span class="post-chip">{{ post.category }}</span>
-          {% endif %}
-          <time class="post-date" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y.%m.%d" }}</time>
-        </div>
-        <h2 class="post-card-title">{{ post.title }}</h2>
-        <p class="post-excerpt">{% if post.description %}{{ post.description }}{% else %}{{ post.excerpt | strip_html | strip_newlines | truncate: 180 }}{% endif %}</p>
-        <span class="post-read-more">Read more →</span>
-      </a>
-    </article>
-    {% endfor %}
-
-    <!-- Empty State -->
-    <div id="empty-state" class="empty-state-card" style="{% if site.posts.size > 0 %}display: none;{% endif %}">
-      <div class="empty-icon">📝</div>
-      <h3 class="empty-title">No articles yet</h3>
-      <p class="empty-desc">New articles will be published here soon.</p>
-    </div>
-  </div>
-</section>
+    </section>
+    <div class="focus-strip wrap"><span class="strip-label">MY ORBIT</span><span>Aerospace</span><i>/</i><span>Control Systems</span><i>/</i><span>Embedded</span><i>/</i><span>Artificial Intelligence</span><span class="strip-star">✳</span></div>
+    <section id="projects" class="section wrap">
+      <div class="section-heading"><div><div class="eyebrow muted">01 / SELECTED WORK</div><h2>생각을 현실로.</h2><p>실제 연구와 개발 경험, 그리고 개인의 호기심으로 만든 것들.</p></div><a id="project-source-link" href="https://www.linkedin.com/in/ricokim328/details/projects/" target="_blank" rel="noopener noreferrer" class="text-link small">LinkedIn에서 경력 보기 ↗</a></div>
+      <div class="project-tabs" role="tablist" aria-label="프로젝트 구분"><button id="tab-work" role="tab" aria-selected="true" aria-controls="panel-work" data-project-view="work">업무·연구 프로젝트 <span>06</span></button><button id="tab-github" role="tab" aria-selected="false" aria-controls="panel-github" tabindex="-1" data-project-view="github">GitHub 프로젝트 <span>03</span></button></div>
+      <div id="panel-work" role="tabpanel" aria-labelledby="tab-work"><p class="project-context">PROFESSIONAL & ACADEMIC <span>항공우주 · 제어 · 임베디드 시스템</span></p><div id="work-projects" class="work-grid"></div></div>
+      <div id="panel-github" role="tabpanel" aria-labelledby="tab-github" hidden><p class="project-context">PERSONAL & OPEN SOURCE <span>공개 저장소로 만나는 개인 프로젝트</span></p><div class="project-grid">
+        <a class="project-card" href="https://github.com/RicoKim328/orbit-wizard-blue" target="_blank" rel="noopener noreferrer"><div class="project-visual orbit-visual"><span class="visual-id">01 — AEROSPACE</span><svg viewBox="0 0 350 185" fill="none" aria-hidden="true"><g stroke="currentColor"><circle cx="175" cy="100" r="43"/><ellipse cx="175" cy="100" rx="18" ry="43"/><ellipse cx="175" cy="100" rx="43" ry="15"/><path d="M132 100h86M175 57v86"/><ellipse cx="175" cy="100" rx="111" ry="35" transform="rotate(-24 175 100)"/><circle cx="267" cy="56" r="4" fill="currentColor"/></g><path d="M44 158h44m-22-22v44" stroke="currentColor" opacity=".3"/><text x="255" y="158" fill="currentColor" font-family="monospace" font-size="8">GCRS / ITRS</text></svg></div><div class="project-body"><div class="project-meta"><span>항공우주 · 데스크톱 앱</span><span>↗</span></div><h3>Orbit Wizard Blue</h3><p>위성 궤도 계산부터 3D 시각화, 지상 궤적까지.<br>우주의 움직임을 화면 위에 그립니다.</p><div class="tags"><span>Python</span><span>PySide6</span><span>SGP4</span></div></div></a>
+        <a class="project-card" href="https://github.com/RicoKim328/agent-team-maker" target="_blank" rel="noopener noreferrer"><div class="project-visual agent-visual"><span class="visual-id">02 — DEVELOPER TOOLS</span><div class="agent-diagram" aria-hidden="true"><span class="agent-root">◆ orchestrator</span><span class="agent-line"></span><div class="agent-children"><span>○ researcher</span><span>○ builder</span></div><div class="diagram-caption">DESIGN. CONNECT. BUILD.</div></div></div><div class="project-body"><div class="project-meta"><span>AI · 개발 도구</span><span>↗</span></div><h3>Agent Team Maker</h3><p>에이전트 팀을 그림 그리듯 설계하는 도구.<br>아이디어를 함께 실행할 팀을 만듭니다.</p><div class="tags"><span>Claude Code</span><span>TypeScript</span><span>Agents</span></div></div></a>
+        <a class="project-card" href="https://github.com/RicoKim328/claude-usage-pane" target="_blank" rel="noopener noreferrer"><div class="project-visual usage-visual"><span class="visual-id">03 — DEVELOPER TOOLS</span><div class="mini-window" aria-hidden="true"><div class="window-top"><span>● ● ●</span><span>usage-pane</span></div><div class="usage-row"><span>SESSION TOKENS</span><span>↗</span></div><div class="mini-bars"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="window-bottom">VISIBILITY, AT A GLANCE.</div></div></div><div class="project-body"><div class="project-meta"><span>생산성 · 개발 도구</span><span>↗</span></div><h3>Claude Usage Pane</h3><p>토큰 사용량과 한도를 한눈에 확인하고,<br>모델과 추론 강도를 선택하는 패널입니다.</p><div class="tags"><span>Claude Code</span><span>TypeScript</span><span>Plugin</span></div></div></a>
+      </div></div>
+    </section>
+    <section id="journal" class="section journal-section wrap"><div class="section-heading"><div><div class="eyebrow muted">02 / THE JOURNAL</div><h2>쌓이는 기록, 넓어지는 시선.</h2><p>기술과 시장, 그리고 그 사이에서 배운 것들.</p></div><a class="text-link small" href="https://RicoKim328.github.io/feed.xml" target="_blank" rel="noopener noreferrer">RSS 구독 ↗</a></div><div class="journal-toolbar"><div class="filters" role="group" aria-label="글 카테고리"><button class="active" data-filter="all" aria-pressed="true">전체 <span id="post-count">2</span></button><button data-filter="Market Brief" aria-pressed="false">Market Brief</button><button data-filter="Essay & Log" aria-pressed="false">Essay & Log</button></div><label class="search"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><input type="search" id="post-search" aria-label="기록 검색" placeholder="기록 검색"></label></div><div id="post-list" aria-live="polite"><p class="loading">기록을 불러오는 중입니다.</p></div><noscript><p>글 목록은 <a href="https://RicoKim328.github.io/">기존 블로그</a>에서 읽을 수 있습니다.</p></noscript></section>
+    <section id="about" class="about-section wrap"><div class="about-intro"><div class="eyebrow muted">03 / BEHIND THE NOTES</div><h2>공학의 깊이와<br><span>일상의 넓이 사이.</span></h2><p>위성 자세 제어와 강인 제어, 최적화를 공부합니다.<br>임베디드 소프트웨어를 만들고, AI의 가능성을 탐색합니다.<br>화면 밖에서는 테니스를 치고, 달리고, 사진을 찍습니다.</p><div class="about-links"><a href="mailto:hzspir@gmail.com" class="text-link">이메일 보내기 ↗</a><a href="https://www.linkedin.com/in/ricokim328/" target="_blank" rel="noopener noreferrer" class="text-link">LinkedIn ↗</a></div></div><div class="about-details"><div class="about-kicker">A LITTLE ABOUT ME <span>↗</span></div><div class="detail-row"><span>현재</span><div><strong>부산대학교 항공우주공학 석사 과정</strong><p>2025.03 — 2027.02 졸업 예정</p></div></div><div class="detail-row"><span>학부</span><div><strong>항공우주공학 · 임베디드 소프트웨어</strong><p>부산대학교 · 2018.03 — 2025.02</p></div></div><div class="detail-row"><span>관심</span><div class="interest-tags"><span>Satellite Attitude Control</span><span>Robust Control</span><span>Optimization</span><span>AI</span></div></div><div class="off-screen"><span>OFF THE SCREEN</span><span>테니스 · 러닝 · 사진 · 커피</span></div></div></section>
+    <section class="contact-strip wrap"><div><span class="eyebrow muted">LET'S CONNECT</span><h2>좋은 질문은, 함께 나눌 때 더 커집니다.</h2></div><a class="button primary" href="mailto:hzspir@gmail.com">이야기 나누기 <span>↗</span></a></section>
+  </main>
+  <footer class="footer wrap"><a href="#home" class="brand footer-brand"><span class="mark">r<span>·</span></span><span>rico / fieldnotes</span></a><span>© <span id="year">2026</span> Rico Kim. Always exploring.</span><a class="back-top" href="#home">다시 위로 ↑</a></footer>
+  <dialog id="article-dialog" aria-labelledby="article-title"><div class="dialog-top"><span>FIELDNOTES / JOURNAL</span><button id="close-article" class="icon-button" aria-label="글 닫기">✕</button></div><div class="article-meta" id="article-meta"></div><h2 id="article-title"></h2><article id="article-content" class="prose"></article><div class="article-end"><a id="article-source" target="_blank" rel="noopener noreferrer">GitHub에서 원문 보기 ↗</a><button id="copy-link" class="text-link">링크 복사</button></div></dialog>
+  <div class="toast" id="toast" role="status"></div>
+</body>
+</html>
